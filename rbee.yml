@@ -1,0 +1,14 @@
+database:
+  adapter: mysql
+  username: root
+  password: root
+  database: crash_cart
+  host: 127.0.0.1
+  
+control_panel:
+  hostname: localhost
+  theme_path: themes
+  template_path: templates
+  captcha_path: images/captcha
+  avatar_path: images/avatars
+  photo_path: images/member_photos

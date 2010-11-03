@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'activerecord'
+require 'rake'
+
+lib_dir = File.expand_path(File.join(File.dirname(__FILE__), %w{.. lib}))
+
+$:.unshift lib_dir
+
+load "#{lib_dir}/tasks/rbee.rake"
+
+ENV['RUN_PATH'] = `pwd`.strip
+task_name = "ee:#{ARGV[0]}"
+
+if Rake::Task.task_defined?(task_name)
+  Rake::Task[task_name].invoke 
+else
+  puts ""
+  puts "Task not specified, listing available tasks:\n"
+  
+  task_list = Rake::Task.tasks.reject {|task| task.name == 'ee:environment'}
+  task_list.each {|task| puts " - #{task.name.sub(/^ee:/, '')}"}
+  
+  puts ""
+end
+

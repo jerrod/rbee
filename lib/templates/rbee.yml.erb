@@ -1,0 +1,15 @@
+<% # this sucks - need to refactor -%>
+database:
+  adapter: mysql
+  username: <%= database[:username] %>
+  password: <%= database[:password] %>
+  database: <%= database[:database] %>
+  host: <%= database[:host] %>
+  
+control_panel:
+  hostname: <%= control_panel[:hostname] %>
+  theme_path: <%= control_panel[:theme_path] %>
+  template_path: <%= control_panel[:template_path] %>
+  captcha_path: <%= control_panel[:captcha_path] %>
+  avatar_path: <%= control_panel[:avatar_path] %>
+  photo_path: <%= control_panel[:photo_path] %>
